@@ -61,11 +61,3 @@ if(req.isAuthenticated()) return next()
 }
 module.exports = router;
 
-
-
-////////////////////////////////
-// if(req.isAuthenticated()) return next()
-
-//   res.redirect("/login");
-
-// module.exports = router;
