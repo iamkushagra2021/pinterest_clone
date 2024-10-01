@@ -15,22 +15,34 @@
           <div class="profile-picture">
             <img src="https://i.pinimg.com/originals/a5/d9/d4/a5d9d484c8c698fa01436f10134668b7.png" alt="Profile Picture">
           </div>
-          <h2 class="name">username</h2>
-          <h3 class="username">@username</h3>
-          <p class="tagline">some tagline</p>
-          <p class="description">some description.</p>
-          <a href="#" class="button">setti</a>
+          <h2 class="name"><%=user.fullname %></h2>
+          <h3 class="username">@<%=user.username%></h3>
+          <p class="tagline">hey! there how are you</p>
+          <p class="description">Hope you Enjoy our website </p>
+          <a href="/logout" class="button">Logout</a>
+          <form action="/upload" method="post" enctype="multipart/form-data">
+            <input type="text" name="filecaption" placeholder="some caption">
+            <input type="file" name="file">
+            <input type="submit">
+          </form>
         </div>
     </div>
 
 <div class="container">
+<div class="cards flex">
+  <% user.posts.forEach(function(post){ %>
     <div class="card" style="width: 18rem;">
-        <img src="https://th.bing.com/th/id/OIP.nQVwafGfqnV2NHEIWaOiUAHaFp?rs=1&pid=ImgDetMain" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">All Designs</h5>
-       
-        </div>
+      
+      <img src="/images/uploads/<%=post.image%>"
+       class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title"><%= post.imageText %></h5>
+     
       </div>
+    </div>
+ <% }) %>
+</div>
+    
 </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
